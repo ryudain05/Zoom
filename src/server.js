@@ -30,6 +30,7 @@ wss.on("connection", (socket) => {
   console.log("Connected to Browser");
   socket.on("close", onSocketClose);
   socket.on("message", (message) => {
+    console.log(message.toString("utf-8"));
     sockets.forEach((aSocket) => aSocket.send(message.toString()));
   });
 });
